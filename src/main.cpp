@@ -7,6 +7,7 @@ int TouchValue = 40000;
 #include <Arduino.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
+#include <menu.h>
 
 #define SDA_PIN 4
 #define SCL_PIN 5
