@@ -25,6 +25,7 @@ void loop()
   checkRotation();
   if(rotation != 0)
   {
+    // test
     updateMenu();
   }
   
