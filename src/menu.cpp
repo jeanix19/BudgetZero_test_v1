@@ -14,21 +14,35 @@ int rotation = 0; //0 = no ritation, -1 = left rotation, 1 = right rotation. Val
 int menuPos = 1;
 
 
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+int lastState = digitalRead(9);
+int currentState;
 
 void setupMenu()
 {
-    LiquidCrystal_I2C lcd(0x27,  16, 2);
-    Wire.begin(SDA_PIN, SCL_PIN);
-
     lcd.init();
     lcd.backlight();
 
     pinMode(9, INPUT_PULLUP);
     pinMode(10, INPUT_PULLUP);
+    
 }
 
 void checkRotation()
 {
+    currentState = digitalRead(9);
+    if(currentState != lastState)
+    {
+        if(digitalRead(10))
+        {
+            rotation = 1; //right
+        }
+        else
+        {
+            rotation = -1; //left
+        }
+    }
     
 }
 
@@ -46,7 +60,9 @@ void updateMenu()
         menuPos = 1;
     }
 
+
+
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.print("1. something");
+    lcd.print(menuPos);
 }

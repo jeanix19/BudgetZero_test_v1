@@ -3,6 +3,7 @@
 
 void setupMenu();
 void updateMenu();
+void checkRotation();
 
 extern int rotation;
 

@@ -1,9 +1,6 @@
 //config
 
 
-
-
-
 #include <Arduino.h>
 #include <menu.h>
 
@@ -25,5 +22,12 @@ void setup()
 
 void loop()
 {
+  checkRotation();
+  if(rotation != 0)
+  {
+    updateMenu();
+  }
   
+
+  delay(5);
 }
